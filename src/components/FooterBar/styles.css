@@ -1,0 +1,14 @@
+.Footer {
+  background-image: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,1), rgba(252, 105, 99, 1));
+  height: 100%;
+}
+
+.cardTextFooter {
+  color: #fff;
+  opacity: 0.5
+}
+
+.pFooter {
+  padding: 5%;
+  color: #fc6963;
+}

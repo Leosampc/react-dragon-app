@@ -4,58 +4,9 @@
   width: 100%;
 }
 
-.bg-custom-danger {
-  background-color: #fc6963 !important;
-  color: #fff;
-  padding: 0;
-}
-
-.jumbotron-home {
-  padding-top: 3%;
-  padding-bottom: 3%;
-}
-
-.btn-custom-white {
-  color: #fff;
-}
-
-.btn-custom-white:hover {
-  color: #fff;
-}
-
-.bg-custom-danger-outline {
-  color: #fff;
-  background-image: linear-gradient(to right, rgba(255,255,255,1), rgba(252, 105, 99, 1));
-}
-
-.bg-custom-danger-outline a {
-  color: #f85151;
-}
-
-.bg-custom-danger-outline .navbar-nav a {
-  color: #fc6963;
-}
-
-.btn-custom-danger-outline {
-  color: #fc6963;
-  border-color: #fc6963;
-  border-width: 1px;
-}
-
-.btn-custom-danger-outline:hover {
-  color: #fff;
-  background-color: #fc6963;
-}
-
-.logo {
-  width: 5%;
-  height: 5%;
-  margin: 1%;
-}
-
 .hrDiv {
   background-color: #fc6963;
-  height: 10px;
+  height: 60px;
 }
 
 .dragonList {
@@ -88,6 +39,7 @@
 
 .cardComponent {
   background-color: #fc6963;
+  cursor: pointer;
 }
 
 .cardComponent:hover {
@@ -109,17 +61,22 @@
   background-color: #fc6963;
 }
 
-.Footer {
-  background-image: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,1), rgba(252, 105, 99, 1));
-  height: 100%;
+.cardFooter {
+  background-color: #fc6963;
 }
 
-.cardTextFooter {
-  color: #fff;
-  opacity: 0.5
+.btn-custom-card-footer {
+  background-color: #fff;
 }
 
-.pFooter {
-  padding: 5%;
+.btn-custom-card-footer:hover {
   color: #fc6963;
+}
+
+.pReadingMore {
+  color: #ccc;
+}
+
+.pReadingMore:hover {
+  text-decoration: underline
 }

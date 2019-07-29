@@ -1,0 +1,16 @@
+.btn-custom-btn-modal {
+  background-color: #fc6963;
+  color: #fff;
+}
+
+.btn-custom-btn-modal:hover {
+  color: #fff;
+}
+
+.btn-custom-card-footer {
+  background-color: #fff;
+}
+
+.btn-custom-card-footer:hover {
+  color: #fc6963;
+}
