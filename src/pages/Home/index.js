@@ -118,7 +118,7 @@ class Home extends Component {
                     <Container className="bg-custom-danger" fluid>
                         <Jumbotron className="bg-custom-danger jumbotron-home" fluid>
                             <Container className="text-center">
-                                <h1>Bem vindo Dragon!</h1>
+                                <h1>Bem vindo!</h1>
                                 <p>
                                     Abaixo temos uma lista com todos os dragões cadastrados.
                                 </p>
