@@ -46,3 +46,7 @@
   height: 50px;
   margin: 1%;
 }
+
+.custom-nav-white {
+  color: #fff !important
+}

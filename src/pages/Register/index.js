@@ -9,25 +9,25 @@ import api from "../../services/api"
 
 
 class Register extends Component {
-  state = {
+  state = { //variaveis de estado que controlam os componentes do form
     name : "",
     type : "",
     histories : "",
     error: ""
   }
-    handleSubmit = async e => {
-      e.preventDefault()
+    handleSubmit = async e => { //metodo que é chamado ao tentar enviar o form
+      e.preventDefault() //pausa a execução
       const { name, type, histories } = this.state
-      if(name.length > 3 && type !== "") {
+      if(name.trim().length > 0 && type !== "") { //caso o usuario tenha digitado algo no campo nome, e o campo type esteja diferente do default
         try {
-          await api.post("/dragon", { name, type, histories });
-          this.props.history.push("/home");
-        } catch (err) {
+          await api.post("/dragon", { name, type, histories }); //envia a requisição de cadastro via API
+          this.props.history.push("/home"); //redireciona para a Home
+        } catch (err) { //caso ocorra um erro na requisiçaõ
           console.log(err);
-          this.setState({ error: "Ocorreu um erro ao cadastrar o dragao, tente novamente mais tarde." });
+          this.setState({ error: "Ocorreu um erro ao cadastrar o dragao, tente novamente mais tarde." }); //altera o valor do state error que é exibido na tela
         }
-      } else {
-        this.setState({ error: "Um ou mais campos preenchidos incorretamente, favor revisar." })
+      } else { //caso os parâmetros do form estejam inválidos
+        this.setState({ error: "Um ou mais campos preenchidos incorretamente, favor revisar." }) //altera o valor do state error que é exibido na tela
       }
     }
 
@@ -68,13 +68,13 @@ class Register extends Component {
                           onChange={e => this.setState({ type: e.target.value })}
                         >
                           <option value="0" disabled>Selecione um tipo...</option>
-                          <option value="ar">Ar</option>
-                          <option value="agua">Agua</option>
-                          <option value="gelo">Gelo</option>
-                          <option value="fogo">Fogo</option>
-                          <option value="terra">Terra</option>
-                          <option value="trovao">Trovão</option>
-                          <option value="veneno">Veneno</option>
+                          <option value="Ar">Ar</option>
+                          <option value="Agua">Agua</option>
+                          <option value="Gelo">Gelo</option>
+                          <option value="Fogo">Fogo</option>
+                          <option value="Terra">Terra</option>
+                          <option value="Trovao">Trovão</option>
+                          <option value="Veneno">Veneno</option>
                         </Form.Control>
                       </Col>
                     </Row>

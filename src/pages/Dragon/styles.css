@@ -1,0 +1,36 @@
+.bg-custom-danger {
+  background-color: #fc6963 !important;;
+  color: #fff;
+  padding: 0;
+}
+
+.ContainerBody {
+  background-color: #fc6963 !important;;
+  height: 65vh
+}
+
+.ContainerDetails {
+  background-color: #E8E8E8;
+  height: 90%;
+  width: 70%;
+  box-shadow: 0px 0px 23px 3px rgba(92,92,92,1);
+  padding: 3%;
+}
+
+.inputName {
+  width: 100%;
+  color: rgb(99, 99, 99);
+  background-color: #E8E8E8;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-width: 2px;
+  border-bottom-color: #fc6963;
+}
+
+@media screen and (max-width: 780px) {
+  .ContainerDetails {
+    width: 90%;
+    height: 95%;
+  }
+}

@@ -1,9 +1,8 @@
 import React, { Component } from "react"
-import { Link, withRouter } from "react-router-dom"
+import { withRouter } from "react-router-dom"
 
 import Logo from "../../assets/dragon-logo.png";
-import api from "../../services/api"
-import { login } from "../../services/auth"
+import { login } from "../../services/auth" //método de login (gera o localStorage = session) da nossa aplicação
 
 import { Form, Container } from "./styles"
 
@@ -14,16 +13,16 @@ class Login extends Component {
     error    : ""
   }
 
-  handleLogin = e => {
-    e.preventDefault()
+  handleLogin = e => { //método que é chamado ao tentar logar-se no sistema
+    e.preventDefault() //pausa o submit do form
     const { username, password } = this.state
-    if(!username || !password) {
+    if(!username || !password) { //caso algum dos parâmetros esteja inválido
       this.setState({ error: "Preencha o usuario e a senha para continuar!" })
-    } else {
-      if(username.toLowerCase() === "dragon" && password === "dragon@123") {
-        login(username)
-        this.props.history.push("/home")
-      } else {
+    } else { //caso contrário
+      if(username.toLowerCase() === "dragon" && password === "dragon@123") { //credênciais de login estáticas
+        login(username) //chama o método que cria a sessão
+        this.props.history.push("/home") //redireciona para a /home
+      } else { //caso as credênciais estejam erradas
         this.setState({ error: "Houve um problema com o login, verifique suas credenciais." })
       }
     }

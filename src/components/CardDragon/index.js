@@ -4,36 +4,47 @@ import './styles.css';
 
 const CardDragon = (props) => {
     const { dragon } = props
+    
+    //lógica para transformar o timestamp em data e retornar na formatação correta
+    const DateObject = new Date(dragon.createdAt) //cria um objeto Date com o timestamp recebido
+    let correctMonth = DateObject.getUTCMonth() + 1 //meses vão de 0-11, então conforme o mes resgatado soma +1 no valor
+    correctMonth = (parseInt(correctMonth) < 10) ? "0" + correctMonth : correctMonth //adiciona um 0 à frente da string do mês caso o mesmo seja menor que 10
+    const createdAt = `${DateObject.getUTCDate()}/${correctMonth}/${DateObject.getUTCFullYear()}` //cria a string com a data correta, formato: dd/mm/YYYY
+    
     return (
-      <Card md className="cardComponent p-3" >
-      <Card.Header className="cardHeader">
-          <Card.Title>{dragon.name}</Card.Title>
-      </Card.Header>
-      <Card.Body className="cardBody">
-          <Card.Title>{dragon.type}</Card.Title>
-          <Card.Text>
-              {dragon.histories.slice(0, 60)}
-              <p 
-                  className="pReadingMore" 
-                  href="#"
-                  onClick={() => props._toggleDragonHistoryModal(dragon) } 
-              >
-              {dragon.histories.length > 60 ? `...ler mais` : ``}
-              </p>
-          </Card.Text>
-          <Card.Text className="cardTextFooter">
-              <small className="">Data de Cadastro: 01/08/2019</small>
-          </Card.Text>
-      </Card.Body>
-      <Card.Footer className="cardFooter">
-          <Button 
-            variant="custom-card-footer" 
-            onClick={() => props._toggleDragonEditModal(dragon) }
-          >
-            Alterar
-          </Button>
-      </Card.Footer>
-  </Card>
+        <Card className="cardComponent p-3" >
+            <Card.Header className="cardHeader">
+                <Card.Title>{dragon.name}</Card.Title>
+            </Card.Header>
+            <Card.Body className="cardBody">
+                <Card.Title>{dragon.type}</Card.Title>
+                <Card.Text>
+                    {dragon.histories.slice(0, 60)}
+                </Card.Text>
+                
+                <p className="pReadingMore" href="#" onClick={() => props._toggleDragonModal(dragon, "modalDragonHistory")} >
+                        {dragon.histories.length > 60 ? `...ler mais` : ``}
+                    </p>
+                
+                <Card.Text className="cardTextFooter">
+                    <small className="">cadastrado em: {createdAt}</small>
+                </Card.Text>
+            </Card.Body>
+            <Card.Footer className="cardFooter">
+                <Button 
+                    variant="custom-btn-card" 
+                    onClick={() => props._toggleDragonModal(dragon, "modalDragonEdit")}
+                >
+                    Alterar
+                </Button>
+                <Button 
+                    variant="custom-btn-card" 
+                    onClick={() => props._goToDragonDetails(dragon)}
+                >
+                    Visualizar
+                </Button>
+            </Card.Footer>
+        </Card>
     )
 }
 
