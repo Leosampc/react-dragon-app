@@ -22,7 +22,7 @@ class Login extends Component {
     } else {
       if(username.toLowerCase() === "dragon" && password === "dragon@123") {
         login(username)
-        this.props.history.push("/app")
+        this.props.history.push("/home")
       } else {
         this.setState({ error: "Houve um problema com o login, verifique suas credenciais." })
       }

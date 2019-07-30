@@ -9,6 +9,12 @@
   height: 60px;
 }
 
+.bg-custom-danger {
+  background-color: #fc6963 !important;
+  color: #fff;
+  padding: 0;
+}
+
 .dragonList {
   background-color: #fff;
 }
@@ -40,6 +46,7 @@
 .cardComponent {
   background-color: #fc6963;
   cursor: pointer;
+  box-shadow: -1px 0px 20px -1px rgba(102,102,102,0.9);
 }
 
 .cardComponent:hover {

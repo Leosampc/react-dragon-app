@@ -5,11 +5,11 @@ import './styles.css';
 
 export default function HeaderBar() {
     return (
-        <Navbar sticky="top" bg="custom-danger-outline" variant="custom-danger-outline" >
+        <Navbar sticky="top" bg="custom-danger-outline" variant="custom-danger-outline" className="headerBar" >
             <img src={Logo} className="logo" alt="Dragon Logo" />
             <Nav className="mr-auto">
-                <Nav.Link href="#home">Home</Nav.Link>
-                <Nav.Link href="#features">Cadastro</Nav.Link>
+                <Nav.Link href="/home">Home</Nav.Link>
+                <Nav.Link href="/dragon/register">Cadastro</Nav.Link>
             </Nav>
             <Button variant="custom-white">Sair</Button>
         </Navbar>

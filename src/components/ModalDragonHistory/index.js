@@ -12,10 +12,12 @@ const modalDragonHistory = (props) => {
         >
             <Modal.Header closeButton closeLabel="Close">
                 <Modal.Title id="example-modal-sizes-title-lg">
-                    Nome do dragão
+                    {props.dragon.name}
                 </Modal.Title>
             </Modal.Header>
-            <Modal.Body>...</Modal.Body>
+            <Modal.Body>
+                <p>{props.dragon.histories}</p>
+            </Modal.Body>
         </Modal>
     )
 }

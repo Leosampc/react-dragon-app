@@ -4,7 +4,7 @@ import './styles.css';
 
 export default function FooterBar() {
     return (
-        <footer class="Footer">
+        <footer className="Footer">
             <Container>
                 <p className="text-center pFooter">Copyright &copy; Leonardo Sampaio da Cruz 2019</p>
             </Container>
