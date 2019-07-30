@@ -6,7 +6,7 @@ Esse projeto foi criado com a intenção de desenvolver uma pequena aplicação 
 
 1. Clonar o repositório e ir até o diretório
 2. Instalar as dependências da aplicação
-3 .Executar o projeto
+3. Executar o projeto
 ```
 git clone https://github.com/Leosampc/react-dragon-app.git
 cd react-dragon-app
