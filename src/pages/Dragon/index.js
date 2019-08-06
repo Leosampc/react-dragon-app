@@ -19,16 +19,22 @@ class Dragon extends Component {
           const request = await api.get(`/dragon/${this.state.id}`) //busca um dragão especifico pelo ID via API
           let dragon = request.data
 
-          //lógica para transformar o timestamp em data e retornar na formatação correta
-          const DateObject = new Date(dragon.createdAt) //cria um objeto Date com o timestamp recebido
-          let correctMonth = DateObject.getUTCMonth() + 1 //meses vão de 0-11, então conforme o mes resgatado soma +1 no valor
-          correctMonth = (parseInt(correctMonth) < 10) ? "0" + correctMonth : correctMonth //adiciona um 0 à frente da string do mês caso o mesmo seja menor que 10
-          dragon.createdAt = `${DateObject.getUTCDate()}/${correctMonth}/${DateObject.getUTCFullYear()}` //cria a string com a data correta, formato: dd/mm/YYYY
+          dragon.createdAt = this.formatDate(dragon.createdAt)
+          
           this.setState({ dragon: dragon }) //seta o dragao recebido
       } catch (err) {
           console.log(err);
           //this.setState({ error: "Ocorreu um erro ao cadastrar o dragao, tente novamente mais tarde." });
       }
+    }
+
+    formatDate = (timestamp) => { //funcao para transformar o timestamp em data e retornar na formatação correta
+      const DateObject = new Date(timestamp) //cria um objeto Date com o timestamp recebido
+      let correctMonth = DateObject.getUTCMonth() + 1 //meses vão de 0-11, então conforme o mes resgatado soma +1 no valor
+
+      correctMonth = (parseInt(correctMonth) < 10) ? "0" + correctMonth : correctMonth //adiciona um 0 à frente da string do mês caso o mesmo seja menor que 10
+
+      return `${DateObject.getUTCDate()}/${correctMonth}/${DateObject.getUTCFullYear()}` //cria a string com a data correta, formato: dd/mm/YYYY
     }
 
     render() {

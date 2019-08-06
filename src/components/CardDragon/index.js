@@ -2,14 +2,18 @@ import React from 'react';
 import { Card, Button } from 'react-bootstrap'
 import './styles.css';
 
+function formatDate(timestamp) { //funcao para transformar o timestamp em data e retornar na formatação correta
+    const DateObject = new Date(timestamp) //cria um objeto Date com o timestamp recebido
+    let correctMonth = DateObject.getUTCMonth() + 1 //meses vão de 0-11, então conforme o mes resgatado soma +1 no valor
+    
+    correctMonth = (parseInt(correctMonth) < 10) ? "0" + correctMonth : correctMonth //adiciona um 0 à frente da string do mês caso o mesmo seja menor que 10
+    
+    return `${DateObject.getUTCDate()}/${correctMonth}/${DateObject.getUTCFullYear()}` //cria a string com a data correta, formato: dd/mm/YYYY
+}
+
 const CardDragon = (props) => {
     const { dragon } = props
-    
-    //lógica para transformar o timestamp em data e retornar na formatação correta
-    const DateObject = new Date(dragon.createdAt) //cria um objeto Date com o timestamp recebido
-    let correctMonth = DateObject.getUTCMonth() + 1 //meses vão de 0-11, então conforme o mes resgatado soma +1 no valor
-    correctMonth = (parseInt(correctMonth) < 10) ? "0" + correctMonth : correctMonth //adiciona um 0 à frente da string do mês caso o mesmo seja menor que 10
-    const createdAt = `${DateObject.getUTCDate()}/${correctMonth}/${DateObject.getUTCFullYear()}` //cria a string com a data correta, formato: dd/mm/YYYY
+    const createdAt = formatDate(dragon.createdAt)
     
     return (
         <Card className="cardComponent p-3" >
